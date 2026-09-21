@@ -3,11 +3,13 @@ package com.mining.maintenance.repository;
 import com.mining.maintenance.config.DatabaseConnection;
 import com.mining.maintenance.exception.DatabaseException;
 import com.mining.maintenance.model.Asset;
+import org.springframework.stereotype.Repository;
 
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class AssetRepository {
 
     // =========================

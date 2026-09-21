@@ -2,11 +2,14 @@ package com.mining.maintenance.service;
 
 import com.mining.maintenance.model.Asset;
 import com.mining.maintenance.repository.AssetRepository;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.time.format.DateTimeParseException;
 import java.util.List;
 
+@Service
 public class AssetService {
 
     private final AssetRepository assetRepository;
@@ -27,6 +30,9 @@ public class AssetService {
 
     // Constructor ini memudahkan testing: repository bisa diganti
     // dengan versi palsu tanpa database (dipakai di Tahap 4).
+    // @Autowired memberi tahu Spring untuk memakai constructor ini
+    // saat membuat AssetService secara otomatis.
+    @Autowired
     public AssetService(
             AssetRepository assetRepository
     ) {
