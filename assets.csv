@@ -1,0 +1,7 @@
+assetCode,assetName,category,type,brand,model,serialNumber,purchasePrice,status,location,purchaseDate,operatingHours,description
+EXC-004,Excavator Komatsu PC300,Heavy Equipment,Excavator,Komatsu,PC300,KMT-PC300-004,3500000000,active,Mining Area C,2026-03-10,1800,Excavator produksi baru
+TRK-003,Mining Truck CAT 785,Heavy Equipment,Dump Truck,Caterpillar,785D,CAT785-003,5000000000,active,Mining Area C,2026-04-15,2200,Mining truck produksi baru
+DZR-002,Bulldozer Komatsu D155,Heavy Equipment,Bulldozer,Komatsu,D155,KMT-D155-002,3200000000,active,Mining Area D,2026-05-20,1700,Bulldozer produksi baru
+EXC-006,Excavator Komatsu PC500,Heavy Equipment,Excavator,Komatsu,PC500,KMT-PC500-006,4200000000,active,Pit A,2026-08-17,500,Excavator untuk operasi tambang
+TRK-004,Mining Truck CAT 789,Heavy Equipment,Dump Truck,Caterpillar,789D,CAT789-004,5500000000,active,Mining Area E,2026-08-17,800,Mining truck produksi
+DZR-003,Bulldozer Komatsu D375,Heavy Equipment,Bulldozer,Komatsu,D375,KMT-D375-003,3800000000,active,Mining Area F,2026-08-17,600,Bulldozer untuk pekerjaan tambang
