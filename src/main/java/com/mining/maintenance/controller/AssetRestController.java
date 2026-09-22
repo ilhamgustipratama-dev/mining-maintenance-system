@@ -3,9 +3,11 @@ package com.mining.maintenance.controller;
 import com.mining.maintenance.model.Asset;
 import com.mining.maintenance.service.AssetService;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,5 +57,51 @@ public class AssetRestController {
         }
 
         return ResponseEntity.status(201).body(asset);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<?> updateAsset(@PathVariable int id, @RequestBody Asset asset) {
+
+        Asset existing = assetService.findById(id);
+
+        if (existing == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        asset.setId(id);
+
+        String validationError = assetService.validateAsset(asset);
+
+        if (validationError != null) {
+            return ResponseEntity.badRequest().body(validationError);
+        }
+
+        boolean updated = assetService.updateAsset(asset);
+
+        if (!updated) {
+            return ResponseEntity.badRequest().body("Failed to update asset.");
+        }
+
+        return ResponseEntity.ok(asset);
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<?> deleteAsset(@PathVariable int id) {
+
+        Asset existing = assetService.findById(id);
+
+        if (existing == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        boolean deleted = assetService.deleteAsset(id);
+
+        if (!deleted) {
+            return ResponseEntity.badRequest().body(
+                    "Cannot delete asset: it still has maintenance records."
+            );
+        }
+
+        return ResponseEntity.noContent().build();
     }
 }
