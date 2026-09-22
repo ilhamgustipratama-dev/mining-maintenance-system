@@ -2,7 +2,9 @@ package com.mining.maintenance.controller;
 
 import com.mining.maintenance.model.Asset;
 import com.mining.maintenance.service.AssetService;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,5 +23,17 @@ public class AssetRestController {
     @GetMapping
     public List<Asset> getAllAssets() {
         return assetService.getAllAssets();
+    }
+
+    @GetMapping("/{assetCode}")
+    public ResponseEntity<Asset> getAssetByCode(@PathVariable String assetCode) {
+
+        Asset asset = assetService.findByAssetCode(assetCode);
+
+        if (asset == null) {
+            return ResponseEntity.notFound().build();
+        }
+
+        return ResponseEntity.ok(asset);
     }
 }
