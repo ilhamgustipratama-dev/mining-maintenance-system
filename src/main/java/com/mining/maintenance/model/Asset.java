@@ -17,6 +17,9 @@ public class Asset {
     private double operatingHours;
     private String description;
 
+    public Asset() {
+    }
+
     public Asset(
             int id,
             String assetCode,
