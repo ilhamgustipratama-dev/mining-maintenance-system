@@ -11,6 +11,9 @@ public class MaintenanceRecord {
     private double cost;
     private String status;
 
+    public MaintenanceRecord() {
+    }
+
     public MaintenanceRecord(
             int id,
             int assetId,

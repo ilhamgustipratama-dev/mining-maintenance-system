@@ -1,5 +1,7 @@
 package com.mining.maintenance.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import com.mining.maintenance.model.MaintenanceRecord;
 import com.mining.maintenance.repository.MaintenanceRepository;
 
@@ -8,6 +10,7 @@ import java.time.format.DateTimeParseException;
 import java.util.List;
 import java.util.Map;
 
+@Service
 public class MaintenanceService {
 
     private final MaintenanceRepository maintenanceRepository;
@@ -24,11 +27,10 @@ public class MaintenanceService {
     // =========================
 
     public MaintenanceService() {
-
         this(new MaintenanceRepository());
     }
 
-    // Untuk testing: repository bisa diganti versi palsu.
+    @Autowired
     public MaintenanceService(
             MaintenanceRepository maintenanceRepository
     ) {

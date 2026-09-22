@@ -1,5 +1,6 @@
 package com.mining.maintenance.repository;
 
+import org.springframework.stereotype.Repository;
 import com.mining.maintenance.config.DatabaseConnection;
 import com.mining.maintenance.exception.DatabaseException;
 import com.mining.maintenance.model.MaintenanceRecord;
@@ -14,6 +15,7 @@ import java.util.List;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+@Repository
 public class MaintenanceRepository {
 
     // =========================
